@@ -163,6 +163,7 @@ public class CustomTitleView extends View {
             tempCheckNum[i+1]=(int)(Math.random()*height);
         }
         return tempCheckNum;
+
     }
 
     private int[] getPoint(int height,int width){
