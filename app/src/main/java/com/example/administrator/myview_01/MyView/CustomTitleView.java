@@ -45,15 +45,24 @@ public class CustomTitleView extends View {
         this(context, null);
     }
 
+    /**
+     * 布局文件默认用两个参数的构造方法
+     * @param context
+     * @param attrs
+     */
     public CustomTitleView(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
+    /**
+     *
+     * @param context
+     * @param attrs 对应attrs.xml文件中的<declare-styleable/>标签
+     * @param defStyle
+     */
     public CustomTitleView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
-        /**
-         * 获得自定义样式属性
-         */
+//        获得自定义样式属性
         TypedArray a = context.getTheme().obtainStyledAttributes(attrs, R.styleable.CustomTitleView, defStyle, 0);
         int n = a.getIndexCount();
         for (int i = 0; i < n; i++) {
@@ -70,6 +79,7 @@ public class CustomTitleView extends View {
                     break;
             }
         }
+        //最后记得将TypedArray对象回收
         a.recycle();
 
         /**
@@ -84,6 +94,7 @@ public class CustomTitleView extends View {
             @Override
             public void onClick(View v) {
                 mTitleText=randomText();
+                //更新界面
                 postInvalidate();
             }
         });
